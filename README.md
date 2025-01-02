@@ -1,1 +1,1 @@
-# Treehouse_Full-Stack_JavaScript_Techdegree_unit1
+# Treehouse FullStack JavaScript echdegree Unit 1: Random Quote Generator
