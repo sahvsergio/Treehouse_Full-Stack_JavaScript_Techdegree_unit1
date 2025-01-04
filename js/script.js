@@ -11,18 +11,39 @@ project 1 - A Random Quote Generator
  * `quotes` array 
 ***/
 
+// create an array with a minium of 5 quotes
+const quotes=[];//create an empty array
+
+
+
 
 
 /***
  * `getRandomQuote` function
 ***/
+function getRandomQuote(quotes){
 
+  quotesLength=quotes.length;
+  console.log(typeof quotesLength)
+  randomizedIndex=Math.ceil(Math.random()*quotesLength-1);
+ quote=quotes[randomizedIndex]
+  return 
+
+
+  
+
+};
 
 
 /***
  * `printQuote` function
 ***/
+function printQuote(){
+  quote=getRandomQuote
+  quotePrint=document.querySelector('#')
 
+  
+}
 
 
 /***
