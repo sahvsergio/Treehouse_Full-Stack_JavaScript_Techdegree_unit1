@@ -8,11 +8,15 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+
+
+/* `quotes` array 
 ***/
 
 // create an array with a minium of 5 quotes
 const quotes=[];//create an empty array
+//push quote objects to quotes array
+
 
 
 
@@ -23,11 +27,19 @@ const quotes=[];//create an empty array
 ***/
 function getRandomQuote(quotes){
 
-  quotesLength=quotes.length;
-  console.log(typeof quotesLength)
-  randomizedIndex=Math.ceil(Math.random()*quotesLength-1);
- quote=quotes[randomizedIndex]
-  return 
+/**
+ * [A short description of the myFunc function]
+ *
+ * @param {[param type]} param1 - [parameter description]
+ * @param {[param type]} param2 - [parameter description]
+ * @returns {[return type]} [documents the function's return value]
+ */
+
+  let quotesLength=quotes.length;
+ 
+  let randomizedIndex=Math.ceil(Math.random()*quotesLength-1);
+  let quote=quotes[randomizedIndex]
+  return quote;
 
 
   
@@ -39,11 +51,13 @@ function getRandomQuote(quotes){
  * `printQuote` function
 ***/
 function printQuote(){
-  quote=getRandomQuote
-  quotePrint=document.querySelector('#')
+  let quote=getRandomQuote(quotes);
+  let quotePrint=document.querySelector('.quote');
+  return quotePrint.textContent=quote;
 
   
 }
+getRandomQuote(quotes)
 
 
 /***
