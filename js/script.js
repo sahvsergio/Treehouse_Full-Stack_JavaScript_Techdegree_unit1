@@ -17,10 +17,6 @@ project 1 - A Random Quote Generator
 
 //create an empty array
 const quotes=[];
-//determine the length of the array
-
-let quotesLength=quotes.length;
-
 // filling the array with empty objects while length is less than 5 elements
 
 while (quotes.length<5){
@@ -82,28 +78,18 @@ for (let i=0; i<quotes.length;i++){
 
 
 
+
 /***
  * `getRandomQuote` function
 ***/
 
 
 function getRandomQuote(arr){
-
-/**
- * [A short description of the myFunc function]
- *
- * @param {[param type]} quotes - [parameter description]
- * @param {[param type]} param2 - [parameter description]
- * @returns {[return type]} [documents the function's return value]
- */
-
   
- 
-  let randomizedIndex=Math.ceil(Math.random()*quotesLength-1)
+  let randomizedIndex= Math.ceil(Math.random()*(arr.length)-1);
+  let quote=arr[randomizedIndex];
   
-
-
-
+  return quote;
 };
 
 
@@ -111,15 +97,24 @@ function getRandomQuote(arr){
  * `printQuote` function
 ***/
 function printQuote(){
-  let randomQuote=getRandomQuote(quotes);
- 
+  let quoteBox=document.getElementById('quote-box')
+  // set an empty string in order to store the html later
+  ;
+  // call the getRandomQuote function
+  let randomizedQuote=getRandomQuote(quotes);
+  let quote=randomizedQuote['quote'];
+  let source=randomizedQuote['source'];
+  html=`<p class="quote">${quote} </p>
+<p class="source">${source} </p>`
 
-  let quotePrint=document.querySelector('.quote');
-  return quotePrint.innerHTML=quote;
 
-  
 
+
+  quoteBox.innerHTML =html;
 }
+printQuote();
+
+
 
 
 
@@ -128,4 +123,4 @@ function printQuote(){
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
