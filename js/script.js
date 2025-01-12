@@ -53,12 +53,12 @@ const quoteSource=[
   'Arthur Conan Doyle'
 ];
 const quoteCitation=['THink and Grow Rich',
-   'As a Man Thinketh',
+   'The Power Of Your Subconscious Mind ',
     'The Power of Your Subconscious Mind',
     'The Book of Five Rings',
     'A study in Scarlet'
   ];
-const quoteYear=['1937','1903', '1963','1645'];
+const quoteYear=['1937','1903', '1963','1645','1887'];
 
 const quoteTag=['Opportunity','Results','Subconscious','Strategy', 'Knowledge']
 const quoteIsbn=['','','','','']
@@ -97,22 +97,52 @@ function getRandomQuote(arr){
  * `printQuote` function
 ***/
 function printQuote(){
-  let quoteBox=document.getElementById('quote-box')
-  // set an empty string in order to store the html later
-  ;
+  const colorArray=[
+    'A52A2A',
+    'AB274F',
+    '007FFF',
+    '555D50',
+    '8B008B'
+  ];
+ 
+  let randomizedIndex= Math.ceil(Math.random()*(colorArray.length-1));
+  let myBackground=colorArray[randomizedIndex];
+  document.querySelector('body').style.backgroundColor=`${myBackground}`;
+  
+  
+ 
+
+ 
+
+  let quoteBox=document.querySelector('.quote-box');
+  
+ 
   // call the getRandomQuote function
+ 
   let randomizedQuote=getRandomQuote(quotes);
   let quote=randomizedQuote['quote'];
   let source=randomizedQuote['source'];
+  
   html=`<p class="quote">${quote} </p>
-<p class="source">${source} </p>`
+        <p class="source">${source} `
+  if( 'Citation'.toLowerCase() !=false in randomizedQuote) {
+   
+    html+=`<span class="citation">${randomizedQuote['citation']}</span>`;
+  }
+  if ('Year'.toLowerCase()!=false in randomizedQuote){
+    html+=`<span class="year">${randomizedQuote['year']}</span></p>`;
+
+  }
+  if ('Tag'.toLowerCase()!=false in randomizedQuote){
+    html+=`<p></p><span class="tag">Topic: <strong>${randomizedQuote['tag']}</strong></span></p>`;
+  }
 
 
 
+  quoteBox.innerHTML =html+'</p>';
 
-  quoteBox.innerHTML =html;
 }
-printQuote();
+setInterval(printQuote, 5000);
 
 
 
