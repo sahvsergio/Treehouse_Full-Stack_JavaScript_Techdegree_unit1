@@ -97,32 +97,36 @@ function getRandomQuote(arr){
  * `printQuote` function
 ***/
 function printQuote(){
+  //List of colors to change the quote
   const colorArray=[
-    'A52A2A',
-    'AB274F',
-    '007FFF',
-    '555D50',
-    '8B008B'
+    '#A52A2A',
+    '#AB274F',
+    '#007FFF',
+    '#555D50',
+    '#8B008B'
   ];
- 
-  let randomizedIndex= Math.ceil(Math.random()*(colorArray.length-1));
+
+ // get a randominzed color from the array 
+  let randomizedIndex= Math.ceil(Math.random()*(colorArray.length)-1);
   let myBackground=colorArray[randomizedIndex];
   document.querySelector('body').style.backgroundColor=`${myBackground}`;
   
-  
- 
 
  
 
+ 
+ 
+ // select the space where the quotes are to be placed 
   let quoteBox=document.querySelector('.quote-box');
   
  
   // call the getRandomQuote function
  
   let randomizedQuote=getRandomQuote(quotes);
+  //
   let quote=randomizedQuote['quote'];
   let source=randomizedQuote['source'];
-  
+ 
   html=`<p class="quote">${quote} </p>
         <p class="source">${source} `
   if( 'Citation'.toLowerCase() !=false in randomizedQuote) {
@@ -140,10 +144,11 @@ function printQuote(){
 
 
   quoteBox.innerHTML =html+'</p>';
+  
 
 }
-setInterval(printQuote, 5000);
 
+setInterval(printQuote, 5000);
 
 
 
